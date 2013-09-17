@@ -1,0 +1,74 @@
+$iconSpritePath: "../images/glyphicons-halflings.png";
+$iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
+
+@import 'sass-bootstrap/lib/bootstrap';
+
+
+
+@-webkit-keyframes fadeOut { from { opacity:1; } to { opacity:0; } }
+
+@-webkit-keyframes flicker {
+    0% { background-size: 500px; }
+    100% { background-size: 475px; }
+}
+
+* {-webkit-box-sizing: border-box; -webkit-user-select: none;}
+
+body {
+	font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+	font-weight: 300;
+	opacity: 0;
+	height: 655px;
+	width: 1024px;
+	margin: 0; padding: 0;
+}
+
+h1 {
+	float: left;
+}
+
+.grad {
+	background: -webkit-radial-gradient(center, ellipse cover, rgba(245, 180, 130,.7) 0%,rgba(255,255,255,0) 65%);
+	opacity:0;
+	z-index: 100;
+	background-position: center center;
+	-webkit-animation: flicker 0.5s ease-in-out 0s infinite alternate;
+	-webkit-transform: translate3d(0,0,0);
+	background-repeat: no-repeat;
+	background-size: 500px;
+}
+
+.candle {
+	background: url(../images/candle.jpg) left top no-repeat;
+	z-index: 50;
+}
+
+.stacked {
+	@include size(500px,500px);
+	position: absolute;
+	left: 20px; top: 75px;
+}
+button {
+	-webkit-appearance: none;
+	border: 1px black solid;
+	background-color: black;
+	color: white;
+	border-radius: 10px;
+	font-size: 12px;
+	font-weight: bold;
+	@include size(40px, 80px);
+	margin: 20px;
+}
+
+.fadeOut {
+	opacity: 0;
+	-webkit-transition: opacity 1.5s ease 6s;
+}
+	
+
+.loaded {
+	opacity: 1;
+	-webkit-transition: opacity 1s ease;
+}
+
+.visuallyhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
