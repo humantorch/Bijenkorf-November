@@ -1,6 +1,7 @@
 $iconSpritePath: "../images/glyphicons-halflings.png";
 $iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
 
+$images: "../images/rough/";
 @import 'sass-bootstrap/lib/bootstrap';
 
 
@@ -20,14 +21,100 @@ body {
 	opacity: 0;
 	height: 655px;
 	width: 1024px;
+	overflow: hidden;
 	margin: 0; padding: 0;
+	background-color: $black;
+	color: $white;
 }
+
+.particles {
+	// @include size(655px, 1024px);
+	position: fixed;
+	left: 0; top: 0;
+	pointer-events: none;
+	z-index: 10000;
+}
+
+section {
+	@include size(655px, 1024px);
+	// display: inline-block;
+	position: absolute;
+	background-position: left top;
+	background-repeat: no-repeat;
+	background-size: 1024px 655px;
+	.light {
+		display: block;
+		position: absolute;
+		background-position: left top;
+		background-repeat: no-repeat;
+		background-size: 1024px 655px;
+		left: 0; top: 0;
+		@include size(655px, 1024px);
+		opacity: 0;
+		pointer-events: none;
+		-webkit-transition: opacity .5s ease-in-out;
+		&.shown {
+			opacity: 1;
+		}
+	}
+}
+
+	.sec-zp {
+		background-image: url(#{$images}zp.jpg);
+	}
+
+	// MOONLIGHT
+	.sec-cosmetic {
+		background-image: url(#{$images}cosmeticmoon.jpg);
+	}
+
+	.sec-mensgifts {
+		background-image: url(#{$images}mensgiftsmoon.jpg);
+	}
+
+	.sec-menwomen {
+		background-image: url(#{$images}menwomenmoon.jpg);
+	}
+	
+	.sec-stationery {
+		background-image: url(#{$images}stationerymoon.jpg);
+	}
+
+	.sec-toys {
+		background-image: url(#{$images}toysmoon.jpg);
+	}
+
+
+	// LIT UP
+	.sec-cosmetic .light {
+		background-image: url(#{$images}cosmeticlight.jpg);
+	}
+
+	.sec-mensgifts .light {
+		background-image: url(#{$images}mensgiftslight.jpg);
+	}
+
+	.sec-menwomen .light {
+		background-image: url(#{$images}menwomenlight.jpg);
+	}
+	
+	.sec-stationery .light {
+		background-image: url(#{$images}stationerylight.jpg);
+	}
+
+	.sec-toys .light {
+		background-image: url(#{$images}toyslight.jpg);
+	}
 
 h1 {
 	float: left;
 }
 
-.grad {
+h3 {
+	margin: 20px 20px -15px; padding: 0;
+}
+
+.lampgrad {
 	background: -webkit-radial-gradient(center, ellipse cover, rgba(245, 180, 130,.7) 0%,rgba(255,255,255,0) 65%);
 	opacity:0;
 	z-index: 100;
@@ -36,18 +123,20 @@ h1 {
 	-webkit-transform: translate3d(0,0,0);
 	background-repeat: no-repeat;
 	background-size: 500px;
+	@include size(500px,500px);
 }
 
-.candle {
-	background: url(../images/candle.jpg) left top no-repeat;
+.lamp {
+	background: url(../images/lamp.jpg) left top no-repeat;
 	z-index: 50;
+	@include size(500px,500px);
 }
 
 .stacked {
-	@include size(500px,500px);
 	position: absolute;
-	left: 20px; top: 75px;
+	left: 20px; top: 100px;
 }
+
 button {
 	-webkit-appearance: none;
 	border: 1px black solid;
@@ -60,6 +149,28 @@ button {
 	margin: 20px;
 }
 
+nav {
+	display: block;
+	position: absolute;
+	z-index: 20000;
+	@include size(100px, 270px);
+	bottom: 0;
+	ul {
+		margin: 0;
+		padding: 0;
+	}
+	li {
+		list-style-type: none;
+		float: left;
+		line-height: 100px;
+		width: 45px;
+		font-weight: bold;
+		font-size: 50px;
+		text-align: center;
+	}
+}
+
+
 .fadeOut {
 	opacity: 0;
 	-webkit-transition: opacity 1.5s ease 6s;
@@ -69,6 +180,25 @@ button {
 .loaded {
 	opacity: 1;
 	-webkit-transition: opacity 1s ease;
+}
+
+.active {
+	display: block;
+	-webkit-transition: all 1s ease-in-out;
+	-webkit-transform: translate3d(0,0,0);
+	-webkit-perspective: 1000;
+	-webkit-backface-visibility: hidden;
+}
+
+.inactive {
+	// -webkit-filter: blur(10px);
+	opacity: 0;
+	pointer-events: none;
+	-webkit-transition: all .6s ease-in-out;
+	-webkit-transform: scale(.75) translate3d(0,0,0);
+	-webkit-perspective: 1000;
+	-webkit-backface-visibility: hidden;
+	-webkit-filter: grayscale(100%);
 }
 
 .visuallyhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }

@@ -1,5 +1,5 @@
 /*jslint browser: true, devel: true */
-/*global imagesLoaded*/
+/*global imagesLoaded, log*/
 
 var BKF = BKF || {};
 
@@ -19,40 +19,55 @@ BKF.Global = (function (window, document, undefined) {
         init: function() {
 			/*INITIAL SETUP*/
 
+			// snowFall.snow(document.body, {minSize: 10, maxSize:10, round:true, shadow:false,minSpeed:0.5, maxSpeed:1, flakeCount:10, flakeColor: 'rgba(255,255,255,'+parseFloat( Math.random().toFixed(1) )+')'}
+			// );
+
 			imagesLoaded(document.body, function() {
 				self.contshow();
 			});
-
 
 			/*EVENT LISTENERS*/
 
 			var $bright = document.querySelector('#bright'),
 				$dark = document.querySelector('#dark'),
-				$grad = document.querySelector('.grad'),
+				$grad = document.querySelector('.lampgrad'),
 				t;
 
+			document.addEventListener(UP, function(e) {
+				if (e.target.webkitMatchesSelector('nav li')) {
+					var active = document.querySelector('.active'),
+					target = document.getElementById((e.target.dataset.trigger).toString());
+					active.classList.toggle('inactive');
+					active.classList.toggle('active');
+					target.classList.toggle('inactive');
+					target.classList.toggle('active');
+				} else if (e.target.nodeName === 'SECTION') {
 
-			// Best to swap these to 'touchstart' and 'touchend' for production, but for now it's easier to test on a desktop set up like this
+					document.querySelector('#'+e.target.id+' .light').classList.toggle('shown');
+				}
+			}, false);
 
-			$bright.addEventListener(DOWN,function() {
-				t = setInterval(function() {
-					self.enbrighten($grad);
-				},17);
-			});
 
-			$bright.addEventListener(UP,function() {
-				clearInterval(t);
-			});
 
-			$dark.addEventListener(DOWN,function() {
-				t = setInterval(function() {
-					self.endarken($grad);
-				},17);
-			});
+			// $bright.addEventListener(DOWN,function() {
+			// 	t = setInterval(function() {
+			// 		self.enbrighten($grad);
+			// 	},17);
+			// });
 
-			$dark.addEventListener(UP,function() {
-				clearInterval(t);
-			});
+			// $bright.addEventListener(UP,function() {
+			// 	clearInterval(t);
+			// });
+
+			// $dark.addEventListener(DOWN,function() {
+			// 	t = setInterval(function() {
+			// 		self.endarken($grad);
+			// 	},17);
+			// });
+
+			// $dark.addEventListener(UP,function() {
+			// 	clearInterval(t);
+			// });
 
         },
 

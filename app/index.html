@@ -12,11 +12,54 @@
         <!-- endbuild -->
     </head>
     <body>
-        
-        <div class="grad stacked" style="opacity:0"></div>
-        <div class="candle stacked"></div>
+		<!-- <canvas class="particles" id="p" width="1024" height="655"></canvas> -->
 
-        <button id="bright">brighter</button><button id="dark">darker</button>
+		<section id='zp' class='active sec-zp'>
+		</section>
+
+		<section id='cosmetic' class='inactive sec-cosmetic'>
+			<div class="light"></div>
+
+	    </section>
+
+		<section id='mensgifts' class='inactive sec-mensgifts'>
+			<div class="light"></div>
+
+			<!-- <button id="bright">brighter</button><button id="dark">darker</button>
+	        <div class="lampgrad stacked" style="opacity:0"></div>
+	        <div class="lamp stacked"></div> -->
+		</section>
+
+		<section id='menwomen' class='inactive sec-menwomen'>
+			<div class="light"></div>
+
+		</section>
+
+		<section id='stationery' class='inactive sec-stationery'>
+			<div class="light"></div>
+
+		</section>
+
+		<section id='toys' class='inactive sec-toys'>
+			<div class="light"></div>
+
+		</section>
+
+		<nav>
+			<ul>
+				<li data-trigger='zp'>&bull;</li>
+				<li data-trigger='cosmetic'>&bull;</li>
+				<li data-trigger='mensgifts'>&bull;</li>
+				<li data-trigger='menwomen'>&bull;</li>
+				<li data-trigger='stationery'>&bull;</li>
+				<li data-trigger='toys'>&bull;</li>
+			</ul>
+		</nav>
+			
+
+        
+
+        
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>
             (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
@@ -30,6 +73,7 @@
         <!-- build:js scripts/main.js -->
         <script src="scripts/utilities.js"></script>
         <script src="scripts/vendor/imagesloaded.js"></script>
+        <script src="scripts/dust.js"></script>
         <script src="scripts/main.js"></script>
         <!-- endbuild -->
 
