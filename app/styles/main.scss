@@ -19,43 +19,59 @@ body {
 	font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
 	font-weight: 300;
 	opacity: 0;
-	height: 655px;
+	height: 704px;
 	width: 1024px;
 	overflow: hidden;
 	margin: 0; padding: 0;
 	background-color: $black;
 	color: $white;
+	-webkit-font-smoothing: antialiased;
 }
 
-.particles {
-	// @include size(655px, 1024px);
+
+
+.dustbox {
+	display: none;
+	@include size(704px, 1024px);
 	position: fixed;
 	left: 0; top: 0;
 	pointer-events: none;
 	z-index: 10000;
+	opacity: .5;
+	canvas {
+		pointer-events: none;
+	}
 }
 
 section {
-	@include size(655px, 1024px);
+	@include size(704px, 1024px);
 	// display: inline-block;
 	position: absolute;
 	background-position: left top;
 	background-repeat: no-repeat;
-	background-size: 1024px 655px;
+	background-size: 1024px 704px;
 	.light {
 		display: block;
 		position: absolute;
 		background-position: left top;
 		background-repeat: no-repeat;
-		background-size: 1024px 655px;
+		background-size: 1024px 704px;
 		left: 0; top: 0;
-		@include size(655px, 1024px);
+		@include size(704px, 1024px);
 		opacity: 0;
 		pointer-events: none;
 		-webkit-transition: opacity .5s ease-in-out;
 		&.shown {
 			opacity: 1;
 		}
+	}
+	.switch {
+		display: block;
+		position: absolute;
+		left: 10px; top: 10px;
+		@include size(50px, 50px);
+		background-color: rgba(255,255,255,0.15);
+		border-radius: 50px;
 	}
 }
 
@@ -86,8 +102,53 @@ section {
 
 
 	// LIT UP
-	.sec-cosmetic .light {
-		background-image: url(#{$images}cosmeticlight.jpg);
+	.sec-cosmetic {
+		.light {
+			background-image: url(#{$images}cosmeticlight.jpg);
+			-webkit-transition: opacity 2s ease-in-out !important;
+			&.shown {
+				// -webkit-animation-name: candleflicker;
+				// -webkit-animation-duration: 4s;
+				// -webkit-animation-iteration-count: infinite;
+				// -webkit-animation-timing-function: linear;
+				// -webkit-animation-delay: .5s;
+				// -webkit-mask-image: -webkit-radial-gradient(white, transparent 50%);
+				-webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,.5)), to(rgba(0,0,0,.5)));
+				// opacity: 0.55;
+
+			}
+		}
+		& .candle {
+			opacity: 0;
+			-webkit-transition: opacity .5s ease-in-out;
+		}
+		&.lit .candle {
+			display: block;
+			opacity: 1;
+			position: absolute;
+			left: 0; top: 0;
+			@include size(704px, 1024px);
+			background-size: 1024px 704px;
+			background-image: url(#{$images}cosmeticlight.jpg);
+			-webkit-animation-name: candleflicker;
+			-webkit-animation-duration: 4s;
+			-webkit-animation-iteration-count: infinite;
+			-webkit-animation-timing-function: linear;
+			-webkit-animation-delay: .5s;
+			-webkit-transition: opacity 4s ease-in-out !important;
+			&.ll {
+				-webkit-mask-image: -webkit-radial-gradient(113px 500px, white, transparent 50%);
+			}
+			&.lm {
+				-webkit-mask-image: -webkit-radial-gradient(250px 566px, white, transparent 50%);
+			}
+			&.rm {
+				-webkit-mask-image: -webkit-radial-gradient(843px 600px, white, transparent 50%);
+			}
+			&.rr {
+				-webkit-mask-image: -webkit-radial-gradient(890px 516px, white, transparent 50%);
+			}
+		}
 	}
 
 	.sec-mensgifts .light {
@@ -202,3 +263,115 @@ nav {
 }
 
 .visuallyhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
+
+// animations
+@-webkit-keyframes candleflicker {
+	from {
+		opacity: 0.9;
+	}
+	4% {
+		opacity: 0.8;
+	}
+	6% {
+		opacity: 0.85;
+	}
+	8% {
+		opacity: 0.85;
+	}
+	10% {
+		opacity: 0.85;
+	}
+	11% {
+		opacity: 0.9;
+	}
+	12% {
+		opacity: 0.85;
+	}
+	14% {
+		opacity: 0.85;
+	}
+	16% {
+		opacity: 0.70;
+	}
+	17% {
+		opacity: 0.85;
+	}
+	19% {
+		opacity: 0.9;
+	}
+	20% {
+		opacity: 0.9;
+	}
+	24% {
+		opacity: 0.9;
+	}
+	26% {
+		opacity: 0.8;
+	}
+	28% {
+		opacity: 0.9;
+	}
+	38% {
+		opacity: 0.85;
+	}
+	40% {
+		opacity: 0.9;
+	}
+	42% {
+		opacity: 0.85;
+	}
+	44% {
+		opacity: 0.9;
+	}
+	46% {
+		opacity: 0.95;
+	}
+	56% {
+		opacity: 0.9;
+	}
+	58% {
+		opacity: 0.85;
+	}
+	60% {
+		opacity: 0.9;
+	}
+	68% {
+		opacity: 0.9;
+	}
+	70% {
+		opacity: 1; /*peak*/
+	}
+	72% {
+		opacity: 0.9;
+	}
+	75% {
+		opacity: 0.85;
+	}
+	80% {
+		opacity: 0.9;
+	}
+	83% {
+		opacity: 0.85;
+	}
+	84% {
+		opacity: 0.95;
+	}
+	87% {
+		opacity: 0.8;
+	}
+	90% {
+		opacity: 0.9;
+	}
+	93% {
+		opacity: 0.85;
+	}
+	95% {
+		opacity: 1; /*peak*/
+	}
+	97% {
+		opacity: 0.9;
+	}
+	to {
+		opacity: 0.9;
+	}
+}
