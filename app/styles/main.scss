@@ -28,8 +28,6 @@ body {
 	-webkit-font-smoothing: antialiased;
 }
 
-
-
 .dustbox {
 	display: none;
 	@include size(704px, 1024px);
@@ -105,7 +103,7 @@ section {
 	.sec-cosmetic {
 		.light {
 			background-image: url(#{$images}cosmeticlight.jpg);
-			-webkit-transition: opacity 2s ease-in-out !important;
+			-webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,.75)), to(rgba(0,0,0,0)));
 			&.shown {
 				// -webkit-animation-name: candleflicker;
 				// -webkit-animation-duration: 4s;
@@ -113,29 +111,20 @@ section {
 				// -webkit-animation-timing-function: linear;
 				// -webkit-animation-delay: .5s;
 				// -webkit-mask-image: -webkit-radial-gradient(white, transparent 50%);
-				-webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,.5)), to(rgba(0,0,0,.5)));
-				// opacity: 0.55;
-
+				// -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
+				// opacity: 0.9;
 			}
 		}
 		& .candle {
+			display: block;
 			opacity: 0;
 			-webkit-transition: opacity .5s ease-in-out;
-		}
-		&.lit .candle {
-			display: block;
-			opacity: 1;
 			position: absolute;
 			left: 0; top: 0;
 			@include size(704px, 1024px);
 			background-size: 1024px 704px;
 			background-image: url(#{$images}cosmeticlight.jpg);
-			-webkit-animation-name: candleflicker;
-			-webkit-animation-duration: 4s;
-			-webkit-animation-iteration-count: infinite;
-			-webkit-animation-timing-function: linear;
-			-webkit-animation-delay: .5s;
-			-webkit-transition: opacity 4s ease-in-out !important;
+			background-position: left top;
 			&.ll {
 				-webkit-mask-image: -webkit-radial-gradient(113px 500px, white, transparent 50%);
 			}
@@ -144,11 +133,19 @@ section {
 			}
 			&.rm {
 				-webkit-mask-image: -webkit-radial-gradient(843px 600px, white, transparent 50%);
+				-webkit-animation-delay: 1.5s !important;
 			}
 			&.rr {
 				-webkit-mask-image: -webkit-radial-gradient(890px 516px, white, transparent 50%);
+				-webkit-animation-delay: 1.5s !important;
+			}
+			&.ignited {
+				opacity: 1;
+				-webkit-animation: candleflicker 4s .5s infinite linear;
+				-webkit-transition: opacity .5s ease-in-out;
 			}
 		}
+		
 	}
 
 	.sec-mensgifts .light {
@@ -161,6 +158,13 @@ section {
 	
 	.sec-stationery .light {
 		background-image: url(#{$images}stationerylight.jpg);
+		-webkit-filter: sepia(50%) saturate(150%);
+		&.shown {
+			-webkit-transition: none;
+			-webkit-animation: energysaver 3s 1 ease-in-out;
+			-webkit-animation-fill-mode: forwards;
+			-webkit-filter: sepia(0) saturate(100%);
+		}
 	}
 
 	.sec-toys .light {
@@ -256,7 +260,7 @@ nav {
 	opacity: 0;
 	pointer-events: none;
 	-webkit-transition: all .6s ease-in-out;
-	-webkit-transform: scale(.75) translate3d(0,0,0);
+	-webkit-transform: scale(.9) translate3d(0,0,0);
 	-webkit-perspective: 1000;
 	-webkit-backface-visibility: hidden;
 	-webkit-filter: grayscale(100%);
@@ -270,7 +274,7 @@ nav {
 		opacity: 0.9;
 	}
 	4% {
-		opacity: 0.8;
+		opacity: 0.75;
 	}
 	6% {
 		opacity: 0.85;
@@ -306,7 +310,7 @@ nav {
 		opacity: 0.9;
 	}
 	26% {
-		opacity: 0.8;
+		opacity: 0.75;
 	}
 	28% {
 		opacity: 0.9;
@@ -357,7 +361,7 @@ nav {
 		opacity: 0.95;
 	}
 	87% {
-		opacity: 0.8;
+		opacity: 0.75;
 	}
 	90% {
 		opacity: 0.9;
@@ -373,5 +377,53 @@ nav {
 	}
 	to {
 		opacity: 0.9;
+	}
+}
+
+@-webkit-keyframes energysaver {
+	from {
+		opacity: 0;
+	}
+	13% {
+		opacity: 0;
+	}
+	14% {
+		opacity: 0.15;
+	}
+	16% {
+		opacity: 0.1;
+	}
+	18% {
+		opacity: 0.17;
+	}
+	20% {
+		opacity: 0.2;
+	}
+	21% {
+		opacity: 0.14;
+	}
+	22% {
+		opacity: 0.17;
+	}
+	24% {
+		opacity: 0.23;
+	}
+	26% {
+		opacity: 0.19;
+	}
+	29% {
+		opacity: 0.24;
+	}
+	31% {
+		opacity: 0.2;
+	}
+	33% {
+		opacity: 0.24;
+	}
+	35% {
+		opacity: 0.55;
+	}
+	to {
+		opacity: 1;
 	}
 }

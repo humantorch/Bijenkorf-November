@@ -1,5 +1,5 @@
 /*jslint browser: true, devel: true */
-/*global imagesLoaded, log, camera, THREE, Particle3D*/
+/*global imagesLoaded, log, camera, THREE, Particle3D, $, $$*/
 
 var BKF = BKF || {};
 
@@ -20,16 +20,16 @@ BKF.Global = (function (window, document, undefined) {
 			/*INITIAL SETUP*/
 			self.dust();
 
-			imagesLoaded(document.querySelector('.imagesloaded'), function() {
+			imagesLoaded($('.imagesloaded'), function() {
 				self.contshow();
 				// $zp_vid.play();
 			});
 
 			/*EVENT LISTENERS*/
 
-			var $bright = document.querySelector('#bright'),
-				$dark = document.querySelector('#dark'),
-				$grad = document.querySelector('.lampgrad'),
+			var $bright = $('#bright'),
+				$dark = $('#dark'),
+				$grad = $('.lampgrad'),
 				t;
 
 			// $zp_vid.addEventListener(UP, function() {
@@ -38,7 +38,7 @@ BKF.Global = (function (window, document, undefined) {
 
 			document.addEventListener(UP, function(e) {
 				if (e.target.webkitMatchesSelector('nav li')) {
-					var active = document.querySelector('.active'),
+					var active = $('.active'),
 					target = document.getElementById((e.target.dataset.trigger).toString());
 					active.classList.toggle('inactive');
 					active.classList.toggle('active');
@@ -46,8 +46,15 @@ BKF.Global = (function (window, document, undefined) {
 					target.classList.toggle('active');
 				} else if (e.target.webkitMatchesSelector('section .switch')) {
 					// console.log(e.target.parentNode.id);
-					document.querySelector('#'+e.target.parentNode.id).classList.toggle('lit');
-					document.querySelector('#'+e.target.parentNode.id+' .light').classList.toggle('shown');
+					$('#'+e.target.parentNode.id).classList.toggle('lit');
+					$('#'+e.target.parentNode.id+' .light').classList.toggle('shown');
+
+					[].forEach.call( $$('#'+e.target.parentNode.id+' .candle'), function(el) {
+						el.classList.toggle('ignited');
+					});
+
+
+
 					// var Beep = document.createElement('audio');
 					// Beep.setAttribute('src', 'audio/'+e.target.parentNode.dataset.audio);
 					// Beep.load();

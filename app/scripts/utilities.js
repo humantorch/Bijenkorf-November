@@ -10,7 +10,12 @@ window.log = function(){
 
 
 // Shortcut emulation of jQuery's $() synatx
+
 var $ = function(el) {
+   return document.querySelector(el);
+};
+
+var $$ = function(el) {
    return document.querySelectorAll(el);
 };
 
