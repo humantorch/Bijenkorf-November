@@ -17,13 +17,27 @@ BKF.Global = (function (window, document, undefined) {
 	self = {
 
         init: function() {
+
+			/* NON-IPAD WARNING*/
+			if (navigator.userAgent.match(/iPad/i) === null) {
+				alert("Please view this experience on an iPad or iOS Simulator.");
+			}
+
 			/*INITIAL SETUP*/
-			self.dust();
+			// self.dust();
 
 			imagesLoaded($('.imagesloaded'), function() {
 				self.contshow();
 				// $zp_vid.play();
 			});
+
+			// var bodyswiper = new Swiper(document.body,{
+			// 	mode: 'horizontal',
+			// 	speed: 300,
+			// 	wrapperClass : 'bodyswiper',
+			// 	slideClass : 'swiper-section',
+			// 	slideVisibleClass : 'section-visible'
+			// });
 
 			/*EVENT LISTENERS*/
 
@@ -53,12 +67,16 @@ BKF.Global = (function (window, document, undefined) {
 						el.classList.toggle('ignited');
 					});
 
+					[].forEach.call( $$('#'+e.target.parentNode.id+' .miffie'), function(el) {
+						el.classList.toggle('ignited');
+					});
 
 
-					// var Beep = document.createElement('audio');
-					// Beep.setAttribute('src', 'audio/'+e.target.parentNode.dataset.audio);
-					// Beep.load();
-					// Beep.play();
+
+					// var Matchstrike = document.createElement('audio');
+					// 	Matchstrike.setAttribute('src', 'media/audio/'+e.target.parentNode.dataset.audio);
+					// 	Matchstrike.load();
+					// 	Matchstrike.play();
 				}
 			}, false);
 

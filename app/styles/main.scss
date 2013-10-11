@@ -58,7 +58,7 @@ section {
 		@include size(704px, 1024px);
 		opacity: 0;
 		pointer-events: none;
-		-webkit-transition: opacity .5s ease-in-out;
+		-webkit-transition: all .5s ease-in-out;
 		&.shown {
 			opacity: 1;
 		}
@@ -66,10 +66,9 @@ section {
 	.switch {
 		display: block;
 		position: absolute;
-		left: 10px; top: 10px;
-		@include size(50px, 50px);
-		background-color: rgba(255,255,255,0.15);
-		border-radius: 50px;
+		// left: 10px; top: 10px;
+		// @include size(50px, 50px);
+		// background-color: rgba(255,255,255,0.15);
 	}
 }
 
@@ -101,9 +100,20 @@ section {
 
 	// LIT UP
 	.sec-cosmetic {
+		.switch {
+			left: 60px;
+			top: 400px;
+			@include size(220px, 255px);
+			&:nth-of-type(odd) {
+				left: 810px;
+				top: 350px;
+				@include size(190px, 130px);
+			}
+		}
 		.light {
 			background-image: url(#{$images}cosmeticlight.jpg);
 			-webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,.75)), to(rgba(0,0,0,0)));
+			-webkit-transition: opacity 1s ease-in-out;
 			&.shown {
 				// -webkit-animation-name: candleflicker;
 				// -webkit-animation-duration: 4s;
@@ -113,12 +123,14 @@ section {
 				// -webkit-mask-image: -webkit-radial-gradient(white, transparent 50%);
 				// -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
 				// opacity: 0.9;
+				-webkit-transition: opacity 3s ease-in-out;
+
 			}
 		}
 		& .candle {
 			display: block;
 			opacity: 0;
-			-webkit-transition: opacity .5s ease-in-out;
+			-webkit-transition: opacity 1s ease-in-out;
 			position: absolute;
 			left: 0; top: 0;
 			@include size(704px, 1024px);
@@ -133,16 +145,16 @@ section {
 			}
 			&.rm {
 				-webkit-mask-image: -webkit-radial-gradient(843px 600px, white, transparent 50%);
-				-webkit-animation-delay: 1.5s !important;
+				-webkit-animation-delay: 2s !important;
 			}
 			&.rr {
 				-webkit-mask-image: -webkit-radial-gradient(890px 516px, white, transparent 50%);
-				-webkit-animation-delay: 1.5s !important;
+				-webkit-animation-delay: 2s !important;
 			}
 			&.ignited {
 				opacity: 1;
 				-webkit-animation: candleflicker 4s .5s infinite linear;
-				-webkit-transition: opacity .5s ease-in-out;
+				-webkit-transition: opacity 1.5s ease-in-out;
 			}
 		}
 		
@@ -156,19 +168,55 @@ section {
 		background-image: url(#{$images}menwomenlight.jpg);
 	}
 	
-	.sec-stationery .light {
-		background-image: url(#{$images}stationerylight.jpg);
-		-webkit-filter: sepia(50%) saturate(150%);
-		&.shown {
-			-webkit-transition: none;
-			-webkit-animation: energysaver 3s 1 ease-in-out;
-			-webkit-animation-fill-mode: forwards;
-			-webkit-filter: sepia(0) saturate(100%);
+	.sec-stationery {
+		.switch {
+			left: 630px;
+			top: 100px;
+			@include size(50px, 80px);
+		}
+		.light {
+			background-image: url(#{$images}stationerylight.jpg);
+			-webkit-filter: sepia(50%) saturate(150%);
+			&.shown {
+				-webkit-transition: none;
+				-webkit-animation: energysaver 3s 1 ease-in-out;
+				-webkit-animation-fill-mode: forwards;
+				-webkit-filter: sepia(0) saturate(100%);
+			}
 		}
 	}
 
-	.sec-toys .light {
-		background-image: url(#{$images}toyslight.jpg);
+	.sec-toys {
+		.switch {
+			left: 560px;
+			top: 350px;
+			@include size(290px, 130px);
+		}
+		.miffie {
+			display: block;
+			opacity: 0;
+			-webkit-transition: opacity .2s ease-in-out;
+			position: absolute;
+			left: 0; top: 0;
+			@include size(704px, 1024px);
+			background-size: 1024px 704px;
+			background-image: url(#{$images}toyslight.jpg);
+			background-position: left top;
+			-webkit-mask-image: -webkit-radial-gradient(890px 516px, white, transparent 100%);
+			&.ignited {
+				// -webkit-animation: candleflicker 4s .5s infinite linear;
+				opacity: 1;
+				-webkit-transition: opacity 1s ease-in-out;
+			}
+		}
+		.light {
+			background-image: url(#{$images}toyslight.jpg);
+			-webkit-transition: opacity .5s ease-in-out;
+			&.shown {
+				opacity: 1; // drop down to 0.8 or so if adding animation to .miffie
+				-webkit-transition: opacity 2.5s ease-in-out;
+			}
+		}
 	}
 
 h1 {
@@ -421,6 +469,12 @@ nav {
 		opacity: 0.24;
 	}
 	35% {
+		opacity: 0.55;
+	}
+	37% {
+		opacity: 0.25;
+	}
+	39% {
 		opacity: 0.55;
 	}
 	to {
