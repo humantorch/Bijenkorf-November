@@ -79,7 +79,7 @@ section {
 		background-image: url(#{$images}mensgiftsmoon.jpg);
 	}
 
-	.sec-menwomen {
+	.sec-menswomensgifts {
 		background-image: url(#{$images}menwomenmoon.jpg);
 	}
 	
@@ -94,6 +94,9 @@ section {
 
 	// LIT UP
 	.sec-cosmetic {
+		.licht {
+			top: 355px; left: 30px;
+		}
 		.switch {
 			left: 60px;
 			top: 400px;
@@ -198,6 +201,9 @@ section {
 	}
 
 	.sec-mensgifts {
+		.licht {
+			left: 200px; top: 152px;
+		}
 		.switch {
 			// background-color: rgba(255,0,0,.4);
 			@include size(170px, 120px);
@@ -219,7 +225,10 @@ section {
 		}
 	}
 
-	.sec-menwomen {
+	.sec-menswomensgifts {
+		.licht {
+			left: 350px; top: 127px;
+		}
 		.switch {
 			@include size(100px, 85px);
 			// background-color: rgba(255,0,0,.4);
@@ -237,6 +246,9 @@ section {
 	}
 	
 	.sec-stationery {
+		.licht {
+			left: 490px; top: 70px;
+		}
 		.switch {
 			left: 550px;
 			top: 20px;
@@ -259,6 +271,9 @@ section {
 	}
 
 	.sec-toys {
+		.licht {
+			left: 440px; top: 627px;
+		}
 		.switch {
 			left: 560px;
 			top: 350px;
@@ -398,10 +413,10 @@ nav {
 }
 
 .storefront {
-	@include size(500px, 900px);
+	@include size(640px, 960px);
 	position: absolute;
-	left: 50%; margin-left: -450px;
-	top: 50%; margin-top: -250px;
+	left: 50%; margin-left: -480px;
+	top: 50%; margin-top: -320px;
 	// overflow: scroll;
 	-webkit-overflow-scrolling:touch;
 	opacity: 0;
@@ -409,6 +424,7 @@ nav {
 	pointer-events: none;
 	background-color: $white;
 	box-shadow: 0 0 15px rgba(0,0,0,1);
+	z-index: 20000;
 	& .closebtn {
 		display: block;
 		position: absolute;
@@ -424,6 +440,25 @@ nav {
 		-webkit-transform: rotate(45deg);
 		box-shadow: 0 0 5px rgba(255,255,255,1);
 	}
+}
+
+.licht {
+	position: absolute;
+	@include size(34px,85px);
+	color: $white;
+	font-size: 13px;
+	line-height: 34px;
+	&.aan {
+		background: transparent url(../images/lightblub.png) right center no-repeat;
+		background-size: 22px 34px;
+		-webkit-transition: all .3s linear;
+	}
+	&.uit {
+		background: transparent url(../images/lightblub25.png) right center no-repeat;
+		background-size: 22px 34px;
+		-webkit-transition: all .3s linear;
+	}
+	
 }
 
 .visuallyhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }

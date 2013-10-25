@@ -1,5 +1,5 @@
 /*jslint browser: true, devel: true */
-/*global imagesLoaded, log, camera, THREE, Particle3D, $, $$*/
+/*global imagesLoaded, $, $$*/
 
 var BKF = BKF || {};
 
@@ -21,13 +21,14 @@ BKF.Global = (function (window, document, undefined) {
 			
 
 			/* NON-IPAD WARNING*/
+
 			// if (navigator.userAgent.match(/iPad/i) === null) {
 			// 	alert('Please view this experience on an iPad or iOS Simulator.');
 			// }
 
 			/*INITIAL SETUP*/
 
-			var flipyo = document.location.hash !== '' ? document.location.hash : '#cosmetic',
+			var flipyo = document.location.hash !== '' ? document.location.hash : '#toys', // WHICH ONE SHOWS BY DEFAULT
 				$flipyo = $(flipyo),
 				$flipyoNext = $flipyo.nextElementSibling === null ? $('section:first-child') : $flipyo.nextElementSibling,
 				$flipyoPrev = $flipyo.previousElementSibling === null ? $('section:last-child') : $flipyo.previousElementSibling;
@@ -38,6 +39,8 @@ BKF.Global = (function (window, document, undefined) {
 			$flipyoNext.classList.add('nextnode');
 			$flipyoPrev.classList.add('prevnode');
 
+			$('.storefront iframe').src = $flipyo.dataset.shopurl;
+
 			self.swipegasm();
 
 			imagesLoaded($('.imagesloaded'), function() {
@@ -46,10 +49,10 @@ BKF.Global = (function (window, document, undefined) {
 
 			/*EVENT LISTENERS*/
 
-			var $bright = $('#bright'),
-				$dark = $('#dark'),
-				$grad = $('.lampgrad'),
-				t;
+			// var $bright = $('#bright'),
+			// 	$dark = $('#dark'),
+			// 	$grad = $('.lampgrad'),
+			// 	t;
 
 
 			$('.shop').addEventListener(UP ,function() {
@@ -61,19 +64,43 @@ BKF.Global = (function (window, document, undefined) {
 				$('.storefront').classList.remove('fadeIn');
 			});
 
-			document.addEventListener(UP, function(e) {
-				if (e.target.webkitMatchesSelector('section .switch')) {
-					// var Beep = document.createElement('audio');
-					// Beep.setAttribute('src', 'media/audio/'+e.target.parentNode.dataset.audio);
-					// Beep.load();
-					// Beep.play();
+			function beep(audiodat) {
+				var Beep = document.createElement('audio');
+				Beep.setAttribute('src', 'media/audio/'+audiodat);
+				Beep.load();
+				Beep.play();
+			}
 
-					// console.log(e.target.parentNode.id);
+			document.addEventListener(UP, function(e) {
+				if (e.target.webkitMatchesSelector('section .switch') || e.target.webkitMatchesSelector('section .licht')) {
+					
+					// console.log(e.target.parentNode.id)
+
 					$('#'+e.target.parentNode.id).classList.toggle('lit');
 					$('#'+e.target.parentNode.id+' .light').classList.toggle('shown');
 
+					if ((e.target.parentNode.id) === 'cosmetic') {
+						if ($('#'+e.target.parentNode.id).classList.contains('lit')) {
+							beep(e.target.parentNode.dataset.audio);
+						}
+					} else {
+						beep(e.target.parentNode.dataset.audio);
+						// if (e.target.parentNode.id.classList.hasClass('lit')) {
+						// 	beep(e.target.parentNode.dataset.audio);
+						// }
+					}
+
 					$('.shop span').innerHTML = $('#'+e.target.parentNode.id).dataset.buttoncopy;
 					$('.shop').classList.toggle('fadeIn');
+
+					$('#'+e.target.parentNode.id+' .licht').classList.toggle('aan');
+					$('#'+e.target.parentNode.id+' .licht').classList.toggle('uit');
+
+					if ($('#'+e.target.parentNode.id+' .licht').innerHTML === 'Licht aan') {
+						$('#'+e.target.parentNode.id+' .licht').innerHTML = 'Licht uit';
+					} else {
+						$('#'+e.target.parentNode.id+' .licht').innerHTML = 'Licht aan';
+					}
 
 					[].forEach.call( $$('#'+e.target.parentNode.id+' .candle'), function(el) {
 						el.classList.toggle('ignited');
@@ -84,15 +111,8 @@ BKF.Global = (function (window, document, undefined) {
 					[].forEach.call( $$('#'+e.target.parentNode.id+' .miffie'), function(el) {
 						el.classList.toggle('ignited');
 					});
-
-
 				}
 			}, false);
-
-			
-
-
-
 
 			// $bright.addEventListener(DOWN,function() {
 			// 	t = setInterval(function() {
@@ -256,6 +276,7 @@ BKF.Global = (function (window, document, undefined) {
 
 			function processingRoutine() {
 				var curNode = $('.active'),
+					curNodeLicht = $('.active .licht'),
 					nextNode, prevNode,
 					nextNextNode, prevPrevNode,
 					$storefront = $('.storefront iframe'),
@@ -272,10 +293,15 @@ BKF.Global = (function (window, document, undefined) {
 					curNode.classList.add('inactive');
 					curNode.classList.remove('active');
 					
+					
+
 					$('.shop').classList.remove('fadeIn');
 					$('.shop').classList.add('visuallyhidden');
 					setTimeout(function() {
 						$('.shop').classList.remove('fadeIn');
+						curNodeLicht.classList.add('aan');
+						curNodeLicht.classList.remove('uit');
+						curNodeLicht.innerHTML = 'Licht aan';
 					},500);
 
 					setTimeout(function() {
@@ -297,6 +323,7 @@ BKF.Global = (function (window, document, undefined) {
 					[].forEach.call( $$('.miffie'), function(el) {
 						el.classList.remove('ignited');
 					});
+
 				}
 				
 				// console.log(swipeDirection);
