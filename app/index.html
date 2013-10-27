@@ -12,45 +12,53 @@
 		<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
         <!-- build:css(.tmp) styles/main.css -->
         <link rel="stylesheet" href="styles/main.css">
+        <link rel="stylesheet" href="styles/idangerous.swiper.css">
         <!-- endbuild -->
     </head>
     <body id="swipeBox">
 	<div class="bodyswiper">
-		<!-- <section id='zp' class='inactive sec-zp swiper-section'>
-			<video id="zp_vid" src="media/video/zp.mp4" width="1024" height="704" loop></video>
-		</section> -->
-		<section id='toys' class='inactive sec-toys swiper-section' data-audio='barebulb.mp3' data-shopurl='http://m.debijenkorf.nl/search?fh_location=%2f%2fcatalog01%2fnl_NL%2fthemepage%3E%7bhouten20speelgoed%7d' data-buttoncopy='Ontdek onze kindergifts'>
+
+
+		<section id='toys' class='sec-toys swiper-section' data-audio='barebulb.mp3' data-shopurl='http://m.debijenkorf.nl/search?fh_location=%2f%2fcatalog01%2fnl_NL%2fthemepage%3E%7bhouten20speelgoed%7d' data-buttoncopy='Ontdek onze kindergifts'>
 			<div class="miffie"></div>
 			<div class="light"></div>
-			<div class="switch"></div>
+			<div class="switch swiper-no-swiping"></div>
 			<div class="licht aan">Licht aan</div>
+			<audio src="media/audio/barebulb.mp3"></audio>
 		</section>
 
-		<section id='stationery' class='inactive sec-stationery swiper-section' data-audio='barebulb.mp3' data-shopurl='http://m.debijenkorf.nl/search?fh_location=%2f%2fcatalog01%2fnl_NL%2fthemepage%3E%7bstationary%7d' data-buttoncopy='Ontdek onze luxe gifts'>
+
+		<section id='stationery' class='sec-stationery swiper-section' data-audio='barebulb.mp3' data-shopurl='http://m.debijenkorf.nl/search?fh_location=%2f%2fcatalog01%2fnl_NL%2fthemepage%3E%7bstationary%7d' data-buttoncopy='Ontdek onze luxe gifts'>
 			<div class="light"></div>
 			<div class="switch"></div>
 			<div class="licht aan">Licht aan</div>
+			<audio src="media/audio/barebulb.mp3"></audio>
 		</section>
 
-		<section id='menswomensgifts' class='inactive sec-menswomensgifts swiper-section' data-audio='barebulb.mp3' data-shopurl='http://m.debijenkorf.nl/search?fh_location=%2f%2fcatalog01%2fnl_NL%2fthemepage%3E%7bvoor20hem20en20haar%7d'  data-buttoncopy='Ontdek onze stijlevolle cadeaus'>
+
+		<section id='menswomensgifts' class='sec-menswomensgifts swiper-section' data-audio='barebulb.mp3' data-shopurl='http://m.debijenkorf.nl/search?fh_location=%2f%2fcatalog01%2fnl_NL%2fthemepage%3E%7bvoor20hem20en20haar%7d'  data-buttoncopy='Ontdek onze stijlevolle cadeaus'>
 			<div class="light"></div>
 			<div class="switch"></div>
 			<div class="licht aan">Licht aan</div>
+			<audio src="media/audio/barebulb.mp3"></audio>
 		</section>
 
-		<section id='mensgifts' class='inactive sec-mensgifts swiper-section' data-audio='pullcord.mp3' data-shopurl='http://m.debijenkorf.nl/search?fh_location=%2f%2fcatalog01%2fnl_NL%2fthemepage%3E%7bherenaccessoires%7d'  data-buttoncopy='Ontdek onze herencadeaus'>
+
+		<section id='mensgifts' class='sec-mensgifts swiper-section' data-audio='pullcord.mp3' data-shopurl='http://m.debijenkorf.nl/search?fh_location=%2f%2fcatalog01%2fnl_NL%2fthemepage%3E%7bherenaccessoires%7d'  data-buttoncopy='Ontdek onze herencadeaus'>
 			<div class="light"></div>
 			<div class="switch left"></div>
 			<div class="switch middle"></div>
 			<div class="switch right"></div>
 			<div class="licht aan">Licht aan</div>
+			<audio src="media/audio/pullcord.mp3"></audio>
 
 			<!-- <button id="bright">brighter</button><button id="dark">darker</button>
 	        <div class="lampgrad stacked" style="opacity:0"></div>
 	        <div class="lamp stacked"></div> -->
 		</section>
 
-		<section id='cosmetic' class='inactive sec-cosmetic swiper-section' data-audio='matchstrike.mp3' data-shopurl='http://m.debijenkorf.nl/search?fh_location=%2f%2fcatalog01%2fnl_NL%2fthemepage%3E%7bdamesgeuren%7d' data-buttoncopy='Ontdek onze beauty cadeaus'>
+
+		<section id='cosmetic' class='sec-cosmetic swiper-section' data-audio='matchstrike.mp3' data-shopurl='http://m.debijenkorf.nl/search?fh_location=%2f%2fcatalog01%2fnl_NL%2fthemepage%3E%7bdamesgeuren%7d' data-buttoncopy='Ontdek onze beauty cadeaus'>
 			<div class="light"></div>
 			<div class="candle ll"></div>
 			<div class="candle lm"></div>
@@ -65,6 +73,7 @@
 			<div class="switch"></div>
 			<div class="switch"></div>
 			<div class="licht aan">Licht aan</div>
+			<audio src="media/audio/matchstrike.mp3"></audio>
 	    </section>
 
 		
@@ -99,12 +108,13 @@
 			<img src="images/final/stationerymoon.jpg">
 			<img src="images/final/toysmoon.jpg">
 			<img src="images/final/zp.jpg">
+			<img src="images/lightblub.png">
 			<img src="images/lightblub25.png">
 		</div>
 
-        <div class="storefront">
+        <div class="storefront swiper-no-swiping">
         	<div class="closebtn">+</div>
-        	<iframe frameborder="none" src="" height="640" width="960" scrolling="yes"></iframe>
+        	<iframe class="swiper-no-swiping" frameborder="none" src="" height="640" width="960" scrolling="yes"></iframe>
 		</div>
         
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
@@ -120,6 +130,7 @@
         <!-- build:js scripts/main.js -->
         <script src="scripts/utilities.js"></script>
         <script src="scripts/vendor/imagesloaded.js"></script>
+        <script src="scripts/vendor/swiper.js"></script>
         <script src="scripts/main.js"></script>
         <!-- endbuild -->
 
