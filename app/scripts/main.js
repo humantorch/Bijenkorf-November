@@ -25,6 +25,8 @@ BKF.Global = (function (window, document, undefined) {
 
 			/*INITIAL SETUP*/
 
+			document.ontouchmove = function(e){ e.preventDefault(); }; // fix for swiping going all bendy-wendy
+
 			var flipyo = document.location.hash !== '' ? document.location.hash : '#toys', // WHICH ONE SHOWS BY DEFAULT
 				$flipyo = $(flipyo),
 				bodyswiper,
@@ -38,7 +40,7 @@ BKF.Global = (function (window, document, undefined) {
 				};
 
 
-
+				// console.log(flipyo);
 
 			// $('.storefront iframe').src = $flipyo.dataset.shopurl;
 
@@ -51,41 +53,41 @@ BKF.Global = (function (window, document, undefined) {
 			});
 
 			bodyswiper = new Swiper(document.body,{
-					mode: 'horizontal',
-					speed: 500,
-					wrapperClass : 'bodyswiper',
-					slideClass : 'swiper-section',
-					slideVisibleClass: 'active',
-					loop: true,
-					onSlideChangeStart: function() {
-						$('.shop').classList.add('visuallyhidden');
-					},
-					onSlideChangeEnd: function() {
-						$('.storefront iframe').src = $('.active').dataset.shopurl;
-						$('.shop').classList.remove('fadeIn');
-						setTimeout(function() {
-							$('.shop').classList.remove('visuallyhidden');
-						},500);
-						[].forEach.call( $$('.light'), function(el) {
-							el.classList.remove('shown');
-						});
-						[].forEach.call( $$('.candle'), function(el) {
-							el.classList.remove('ignited');
-						});
-						[].forEach.call( $$('.flame'), function(el) {
-							el.classList.remove('ignited');
-						});
-						[].forEach.call( $$('.miffie'), function(el) {
-							el.classList.remove('ignited');
-						});
-						[].forEach.call( $$('.licht'), function(el) {
-							el.classList.remove('uit');
-							el.classList.add('aan');
-							el.innerHTML = 'Licht aan';
-						});
-					}
-					
-				});
+				mode: 'horizontal',
+				speed: 500,
+				slideVisibleClass: 'active',
+				// loop: true,
+				onSlideChangeStart: function() {
+					$('.shop').classList.add('visuallyhidden');
+				},
+				onSlideChangeEnd: function() {
+					$('.storefront iframe').src = $('.active').dataset.shopurl;
+					$('.shop').classList.remove('fadeIn');
+					setTimeout(function() {
+						$('.shop').classList.remove('visuallyhidden');
+					},500);
+					[].forEach.call( $$('.light'), function(el) {
+						el.classList.remove('shown');
+					});
+					[].forEach.call( $$('.candle'), function(el) {
+						el.classList.remove('ignited');
+					});
+					[].forEach.call( $$('.flame'), function(el) {
+						el.classList.remove('ignited');
+					});
+					[].forEach.call( $$('.miffie'), function(el) {
+						el.classList.remove('ignited');
+					});
+					[].forEach.call( $$('.licht'), function(el) {
+						el.classList.remove('uit');
+						el.classList.add('aan');
+						el.innerHTML = 'Licht aan';
+					});
+					$('body').scrollLeft = 0;
+				}
+				
+			});
+
 
 			/*EVENT LISTENERS*/
 			$('.shop').addEventListener(UP ,function() {
@@ -144,12 +146,14 @@ BKF.Global = (function (window, document, undefined) {
         },
 
         contshow: function() {
-			document.body.classList.add('loaded');
-			[].forEach.call( $$('section'), function(el) {
-				el.classList.remove('inactive');
-				el.classList.remove('active');
-			});
-			$('.storefront iframe').src = $('#toys').dataset.shopurl;
+			setTimeout( function() {
+				document.body.classList.add('loaded');
+				[].forEach.call( $$('section'), function(el) {
+					el.classList.remove('inactive');
+					el.classList.remove('active');
+				});
+				$('.storefront iframe').src = $('#toys').dataset.shopurl;
+			},500);
         }
 
 	};

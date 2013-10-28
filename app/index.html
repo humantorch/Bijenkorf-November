@@ -3,9 +3,9 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
+        <title>v.14.15</title>
         <meta name="description" content="">
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=1024, height=655, target-densitydpi=device-dpi" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=1024, height=704, target-densitydpi=device-dpi" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
 
@@ -15,50 +15,11 @@
         <link rel="stylesheet" href="styles/idangerous.swiper.css">
         <!-- endbuild -->
     </head>
-    <body id="swipeBox">
-	<div class="bodyswiper">
+    <body id="swipeBox" class="swiper-container">
+	<div class="swiper-wrapper">
 
 
-		<section id='toys' class='sec-toys swiper-section' data-audio='barebulb.mp3' data-shopurl='http://m.debijenkorf.nl/search?fh_location=%2f%2fcatalog01%2fnl_NL%2fthemepage%3E%7bhouten20speelgoed%7d' data-buttoncopy='Ontdek onze kindergifts'>
-			<div class="miffie"></div>
-			<div class="light"></div>
-			<div class="switch swiper-no-swiping"></div>
-			<div class="licht aan">Licht aan</div>
-			<audio src="media/audio/barebulb.mp3"></audio>
-		</section>
-
-
-		<section id='stationery' class='sec-stationery swiper-section' data-audio='barebulb.mp3' data-shopurl='http://m.debijenkorf.nl/search?fh_location=%2f%2fcatalog01%2fnl_NL%2fthemepage%3E%7bstationary%7d' data-buttoncopy='Ontdek onze luxe gifts'>
-			<div class="light"></div>
-			<div class="switch"></div>
-			<div class="licht aan">Licht aan</div>
-			<audio src="media/audio/barebulb.mp3"></audio>
-		</section>
-
-
-		<section id='menswomensgifts' class='sec-menswomensgifts swiper-section' data-audio='barebulb.mp3' data-shopurl='http://m.debijenkorf.nl/search?fh_location=%2f%2fcatalog01%2fnl_NL%2fthemepage%3E%7bvoor20hem20en20haar%7d'  data-buttoncopy='Ontdek onze stijlevolle cadeaus'>
-			<div class="light"></div>
-			<div class="switch"></div>
-			<div class="licht aan">Licht aan</div>
-			<audio src="media/audio/barebulb.mp3"></audio>
-		</section>
-
-
-		<section id='mensgifts' class='sec-mensgifts swiper-section' data-audio='pullcord.mp3' data-shopurl='http://m.debijenkorf.nl/search?fh_location=%2f%2fcatalog01%2fnl_NL%2fthemepage%3E%7bherenaccessoires%7d'  data-buttoncopy='Ontdek onze herencadeaus'>
-			<div class="light"></div>
-			<div class="switch left"></div>
-			<div class="switch middle"></div>
-			<div class="switch right"></div>
-			<div class="licht aan">Licht aan</div>
-			<audio src="media/audio/pullcord.mp3"></audio>
-
-			<!-- <button id="bright">brighter</button><button id="dark">darker</button>
-	        <div class="lampgrad stacked" style="opacity:0"></div>
-	        <div class="lamp stacked"></div> -->
-		</section>
-
-
-		<section id='cosmetic' class='sec-cosmetic swiper-section' data-audio='matchstrike.mp3' data-shopurl='http://m.debijenkorf.nl/search?fh_location=%2f%2fcatalog01%2fnl_NL%2fthemepage%3E%7bdamesgeuren%7d' data-buttoncopy='Ontdek onze beauty cadeaus'>
+		<section id='cosmetic' class='sec-cosmetic swiper-slide' data-audio='matchstrike.mp3' data-shopurl='http://m.debijenkorf.nl/search?fh_location=%2f%2fcatalog01%2fnl_NL%2fthemepage%3E%7bdamesgeuren%7d' data-buttoncopy='Ontdek onze beauty cadeaus'>
 			<div class="light"></div>
 			<div class="candle ll"></div>
 			<div class="candle lm"></div>
@@ -73,8 +34,48 @@
 			<div class="switch"></div>
 			<div class="switch"></div>
 			<div class="licht aan">Licht aan</div>
-			<audio src="media/audio/matchstrike.mp3"></audio>
+			<!-- <audio src="media/audio/matchstrike.mp3"></audio> -->
 	    </section>
+
+	    <section id='menswomensgifts' class='sec-menswomensgifts swiper-slide' data-audio='barebulb.mp3' data-shopurl='http://m.debijenkorf.nl/search?fh_location=%2f%2fcatalog01%2fnl_NL%2fthemepage%3E%7bvoor20hem20en20haar%7d'  data-buttoncopy='Ontdek onze stijlevolle cadeaus'>
+			<div class="light"></div>
+			<div class="switch"></div>
+			<div class="licht aan">Licht aan</div>
+			<!-- <audio src="media/audio/barebulb.mp3"></audio> -->
+		</section>
+
+		<section id='stationery' class='sec-stationery swiper-slide' data-audio='barebulb.mp3' data-shopurl='http://m.debijenkorf.nl/search?fh_location=%2f%2fcatalog01%2fnl_NL%2fthemepage%3E%7bstationary%7d' data-buttoncopy='Ontdek onze luxe gifts'>
+			<div class="light"></div>
+			<div class="switch"></div>
+			<div class="licht aan">Licht aan</div>
+			<!-- <audio src="media/audio/barebulb.mp3"></audio> -->
+		</section>
+
+
+		<section id='toys' class='sec-toys swiper-slide' data-audio='barebulb.mp3' data-shopurl='http://m.debijenkorf.nl/search?fh_location=%2f%2fcatalog01%2fnl_NL%2fthemepage%3E%7bhouten20speelgoed%7d' data-buttoncopy='Ontdek onze kindergifts'>
+			<div class="miffie"></div>
+			<div class="light"></div>
+			<div class="switch swiper-no-swiping"></div>
+			<div class="licht aan">Licht aan</div>
+			<!-- <audio src="media/audio/barebulb.mp3"></audio> -->
+		</section>
+
+
+		<section id='mensgifts' class='sec-mensgifts swiper-slide' data-audio='pullcord.mp3' data-shopurl='http://m.debijenkorf.nl/search?fh_location=%2f%2fcatalog01%2fnl_NL%2fthemepage%3E%7bherenaccessoires%7d'  data-buttoncopy='Ontdek onze herencadeaus'>
+			<div class="light"></div>
+			<div class="switch left"></div>
+			<div class="switch middle"></div>
+			<div class="switch right"></div>
+			<div class="licht aan">Licht aan</div>
+			<!-- <audio src="media/audio/pullcord.mp3"></audio> -->
+
+			<!-- <button id="bright">brighter</button><button id="dark">darker</button>
+	        <div class="lampgrad stacked" style="opacity:0"></div>
+	        <div class="lamp stacked"></div> -->
+		</section>
+
+
+		
 
 		
 
@@ -119,12 +120,12 @@
         
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>
-            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-            e.src='//www.google-analytics.com/analytics.js';
-            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-XXXXX-X');ga('send','pageview');
+            // (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            // function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            // e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            // e.src='//www.google-analytics.com/analytics.js';
+            // r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            // ga('create','UA-XXXXX-X');ga('send','pageview');
         </script>
 
         <!-- build:js scripts/main.js -->

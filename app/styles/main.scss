@@ -13,8 +13,8 @@ body {
 	font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
 	font-weight: 300;
 	opacity: 0;
-	height: 704px;
-	width: 1024px;
+	height: 704px !important;
+	width: 1024px !important;
 	overflow: hidden;
 	margin: 0; padding: 0;
 	background-color: $black;
@@ -129,7 +129,7 @@ section {
 	// LIT UP
 	.sec-cosmetic {
 		.licht {
-			top: 355px; left: 30px;
+			top: 340px; left: 30px;
 		}
 		.switch {
 			left: 60px;
@@ -236,7 +236,7 @@ section {
 
 	.sec-mensgifts {
 		.licht {
-			left: 200px; top: 152px;
+			left: 200px; top: 137px;
 		}
 		.switch {
 			// background-color: rgba(255,0,0,.4);
@@ -261,7 +261,7 @@ section {
 
 	.sec-menswomensgifts {
 		.licht {
-			left: 350px; top: 127px;
+			left: 350px; top: 112px;
 		}
 		.switch {
 			@include size(100px, 85px);
@@ -281,7 +281,7 @@ section {
 	
 	.sec-stationery {
 		.licht {
-			left: 490px; top: 70px;
+			left: 490px; top: 55px;
 		}
 		.switch {
 			left: 550px;
@@ -306,7 +306,7 @@ section {
 
 	.sec-toys {
 		.licht {
-			left: 440px; top: 627px;
+			left: 440px; top: 612px;
 		}
 		.switch {
 			left: 560px;
@@ -456,22 +456,29 @@ nav {
 
 .licht {
 	position: absolute;
-	@include size(34px,85px);
+	@include size(75px,110px);
 	color: $white;
 	font-size: 13px;
-	line-height: 34px;
+	line-height: 75px;
+	-webkit-transform: translate3d(0,0,0);
+	-webkit-perspective: 1000;
+	-webkit-transform-style: preserve-3d;
+	-webkit-backface-visibility: hidden;
 	&.aan {
-		background: transparent url(../images/lightblub.png) right center no-repeat;
-		background-size: 22px 34px;
-		-webkit-transition: all .3s linear;
+		// background: transparent url(../images/lightblub.png) right center no-repeat;
+		background-size: 75px 75px;
+		// -webkit-transition: all .3s linear;
+		-webkit-animation: lightblub 3s infinite ease-in-out;
+		background-repeat: no-repeat;
 	}
 	&.uit {
 		background: transparent url(../images/lightblub25.png) right center no-repeat;
-		background-size: 22px 34px;
-		-webkit-transition: all .3s linear;
+		background-size: 75px 75px;
+		// -webkit-transition: all .3s linear;
 	}
 	
 }
+
 
 .visuallyhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
 
@@ -615,4 +622,21 @@ nav {
 	39% {opacity: 0.55;}
 	42% {opacity: 1;}
 	to {opacity: 1;}
+}
+
+// Licht aan/uit pulsing 
+
+@-webkit-keyframes lightblub {
+	0% {
+		background: transparent url(../images/lightblub.png) right center no-repeat;
+		background-size: 75px 75px;
+	}
+	35% {
+		background: transparent url(../images/lightblub-glow.png) right center no-repeat;
+		background-size: 75px 75px;
+	}
+	100% {
+		background: transparent url(../images/lightblub.png) right center no-repeat;
+		background-size: 75px 75px;
+	}
 }

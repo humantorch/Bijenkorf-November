@@ -81,18 +81,13 @@ Basic Swiper Styles
 Your custom styles, here you need to specify container's and slide's
 sizes, pagination, etc.
 ================================================================*/
-.swiper-container {
+.swiper-container, .swiper-slide {
 	/* Specify Swiper's Size: */
 
 	width:1024px;
 	height: 704px;
 }
-.swiper-slide {
-	/* Specify Slides's Size: */
-	
-	width:1024px;
-	height: 704px;
-}
+
 .swiper-slide-active {
 	/* Specific active slide styling: */
 	
