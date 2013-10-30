@@ -437,6 +437,7 @@ nav {
 	background-color: $white;
 	box-shadow: 0 0 15px rgba(0,0,0,1);
 	z-index: 20000;
+	transform: translate(-9999px, 0);
 	& .closebtn {
 		display: block;
 		position: absolute;
@@ -451,6 +452,9 @@ nav {
 		font-size: 1.5em;
 		-webkit-transform: rotate(45deg);
 		box-shadow: 0 0 5px rgba(255,255,255,1);
+	}
+	&.shown {
+		transform: translate(0, 0);
 	}
 }
 
@@ -632,6 +636,10 @@ nav {
 		background-size: 75px 75px;
 	}
 	35% {
+		background: transparent url(../images/lightblub-glow.png) right center no-repeat;
+		background-size: 75px 75px;
+	}
+	50% {
 		background: transparent url(../images/lightblub-glow.png) right center no-repeat;
 		background-size: 75px 75px;
 	}

@@ -27,7 +27,7 @@ BKF.Global = (function (window, document, undefined) {
 
 			document.ontouchmove = function(e){ e.preventDefault(); }; // fix for swiping going all bendy-wendy
 
-			var flipyo = document.location.hash !== '' ? document.location.hash : '#toys', // WHICH ONE SHOWS BY DEFAULT
+			var flipyo = document.location.hash !== '' ? document.location.hash : '#cosmetic', // WHICH ONE SHOWS BY DEFAULT
 				$flipyo = $(flipyo),
 				bodyswiper,
 				scenehash = document.location.hash.substr(1) === '' ? 'toys' : document.location.hash.substr(1),
@@ -92,10 +92,14 @@ BKF.Global = (function (window, document, undefined) {
 			/*EVENT LISTENERS*/
 			$('.shop').addEventListener(UP ,function() {
 				$('.storefront').classList.add('fadeIn');
+				$('.storefront').classList.add('shown');
 			});
 
 			$('.closebtn').addEventListener(UP, function() {
 				$('.storefront').classList.remove('fadeIn');
+				setTimeout(function() {
+					$('.storefront').classList.remove('shown');
+				},500);
 			});
 
 			document.addEventListener(UP, function(e) {
@@ -152,7 +156,7 @@ BKF.Global = (function (window, document, undefined) {
 					el.classList.remove('inactive');
 					el.classList.remove('active');
 				});
-				$('.storefront iframe').src = $('#toys').dataset.shopurl;
+				$('.storefront iframe').src = $('#cosmetic').dataset.shopurl;
 			},500);
         }
 
